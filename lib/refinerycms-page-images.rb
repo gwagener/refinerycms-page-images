@@ -15,6 +15,8 @@ module Refinery
           # this is because images_attributes= overrides accepts_nested_attributes_for.
           accepts_nested_attributes_for :images, :allow_destroy => false
 
+          attr_accessible :images_attributes
+
           def images_attributes=(data)
             self.images.clear
             data.reject!{|i, d| d['id'].blank?}
